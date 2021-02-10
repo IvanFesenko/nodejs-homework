@@ -1,5 +1,3 @@
-import * as fs from "fs/promises";
-import * as path from "path";
 import { handleError } from "./src/lib/handlerror.js";
 import {
   listContacts,
@@ -10,14 +8,22 @@ import {
 
 import program from "./src/lib/commander.js";
 
-const contactsPath = path.join(import.meta.url, "/db/contacts.json");
-
 program.parse();
 const options = program.opts();
 
-console.log(options);
+if (options?.list) {
+  listContacts();
+}
+
+if (options?.get) {
+  getContactById(Number(options.get));
+}
+
+if (options?.delete) {
+  removeContact(Number(options.delete));
+}
 
 if (options?.add) {
   const { name, email, phone } = options;
-  addContact(name, email, phone);
+  if (name && email && phone) addContact(name, email, phone);
 }
