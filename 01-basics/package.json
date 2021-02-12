@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-homework",
+  "version": "1.0.0",
+  "description": "NodeJS homeworks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanFesenko/nodejs-homework.git"
+  },
+  "author": "Ivan Fesenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanFesenko/nodejs-homework/issues"
+  },
+  "homepage": "https://github.com/IvanFesenko/nodejs-homework#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "commander": "^7.0.0",
+    "shortid": "^2.2.16",
+    "yargs": "^16.2.0"
+  }
+}
