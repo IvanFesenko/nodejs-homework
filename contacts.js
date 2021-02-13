@@ -9,9 +9,7 @@ const contactsPath = path.join(__dirname, "./db/contacts.json");
 async function listContacts() {
   try {
     const data = await fs.readFile(contactsPath);
-    console.group("<==== Contacts list ====>");
-    console.table(JSON.parse(data.toString()));
-    console.groupEnd();
+    return JSON.parse(data.toString());
   } catch (error) {
     handleError(error);
   }
