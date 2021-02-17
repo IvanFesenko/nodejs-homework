@@ -1,6 +1,6 @@
 const nanoid = require("nanoid");
 
-const { readData, writeData } = require("./db-contolers.js");
+const { readData, writeData } = require("./db-controllers.js");
 
 function getServerError() {
   return {

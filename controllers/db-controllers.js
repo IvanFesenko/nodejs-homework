@@ -8,7 +8,7 @@ async function readData() {
     const data = await fs.readFile(contactsPath);
     return JSON.parse(data.toString());
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 
@@ -16,7 +16,7 @@ async function writeData(data) {
   try {
     await fs.writeFile(contactsPath, JSON.stringify(data, null, 2));
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 
