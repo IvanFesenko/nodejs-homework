@@ -1,6 +1,8 @@
 const nanoid = require("nanoid");
 
 const { readData, writeData } = require("./db-controllers.js");
+const emailRegExp = require("../service/emailRegExp.js");
+const phoneRegExp = require("../service/phoneRegExp.js");
 
 function getServerError() {
   return {
@@ -121,10 +123,31 @@ async function patchContactById(req, res) {
   }
 }
 
+function validation(req, res, next) {
+  const validationRules = Joi.object({
+    name: Joi.string().min(3).max(30).required(),
+    email: Joi.string().email().min(5).max(30).required().pattern(emailRegExp),
+    phone: Joi.string().min(3).max(30).required().pattern(phoneRegExp),
+  });
+
+  const validationResult = validationRules.validate(req.body);
+
+  if (validationResult.error) {
+    return res.json({
+      status: "Validation error",
+      code: 400,
+      message: validationResult.error,
+    });
+  }
+
+  next();
+}
+
 module.exports = {
   listContacts,
   getContactById,
   deleteContactById,
   addContact,
   patchContactById,
+  validation,
 };
