@@ -97,7 +97,7 @@ async function patchContactById(req, res) {
   try {
     const { contactId } = req.params;
     const { name, email, phone } = req.body;
-    if (!name?.email?.phone) {
+    if (!(name && email && phone)) {
       return res.json({
         status: "Update error",
         code: 400,
