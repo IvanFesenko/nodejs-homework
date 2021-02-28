@@ -4,8 +4,6 @@ const morgan = require("morgan");
 
 const contactRouter = require("./routes/contacts-routes.js");
 
-//mongodb+srv://<username>:<password>@cluster0.iyffx.mongodb.net/test
-
 const app = express();
 require("dotenv").config();
 
