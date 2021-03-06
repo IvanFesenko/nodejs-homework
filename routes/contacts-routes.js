@@ -8,7 +8,7 @@ const {
   addContact,
   patchContactById,
   validation,
-} = require("../controllers/contacts-controllers.js");
+} = require("../controllers/contacts.js");
 
 router.get("/", listContacts);
 router.post("/", validation, addContact);
