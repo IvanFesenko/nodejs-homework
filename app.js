@@ -5,8 +5,11 @@ const morgan = require("morgan");
 const contactRouter = require("./routes/contacts-routes.js");
 
 const app = express();
+require("dotenv").config();
 
 app.use(cors());
+app.use(express.json());
+
 app.use(morgan("combined"));
 app.use("/api/contacts", contactRouter);
 
